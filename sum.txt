@@ -14,3 +14,7 @@ Complex concept or theory: feynman.
 Book or textbook: adler.
 Article or blog post: sq3r.
 Lecture video or meeting: cornell.
+Facts definitions vocabulary: spaced.
+Academic paper: retrieval.
+Multiple related concepts: concept-map.
+Full synthesis needed: condense.
