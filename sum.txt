@@ -18,3 +18,11 @@ Facts definitions vocabulary: spaced.
 Academic paper: retrieval.
 Multiple related concepts: concept-map.
 Full synthesis needed: condense.
+
+## Workflow
+
+1. Identify content type + user goal
+2. Select method from table
+3. Announce: Usando metodo [X] porque [reason]
+4. Apply method
+5. Deliver summary with frontmatter
