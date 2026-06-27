@@ -26,3 +26,15 @@ Full synthesis needed: condense.
 3. Announce: Usando metodo [X] porque [reason]
 4. Apply method
 5. Deliver summary with frontmatter
+
+## Shared Sections
+
+All sub-skills use these.
+
+### Output Frontmatter
+
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+method: [method name]
+source: [title or URL]
+tags: [relevant tags]
