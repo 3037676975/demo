@@ -1,1 +1,4 @@
-guide one
+PPT guide
+Step 1: analyze layout.
+Step 2: rebuild slides.
+Step 3: check result.
