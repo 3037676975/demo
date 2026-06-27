@@ -1,0 +1,1 @@
+document.addEventListener('click',function(e){var b=e.target.closest('button[data-copy]');if(!b)return;var url=new URL(b.dataset.copy,location.href).href;navigator.clipboard.writeText(url).then(function(){var old=b.textContent;b.textContent='已复制';setTimeout(function(){b.textContent=old},1200)}).catch(function(){prompt('复制这个链接',url)})});
