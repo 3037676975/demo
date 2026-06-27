@@ -1,3 +1,9 @@
 # Smart Summarize Auto
 
 Auto-selects best method by content.
+
+Source: VanessaPellegrini/skills learning smart summarize auto SKILL.md
+License: MIT License Copyright 2026 Vanessa Pellegrini
+
+name: smart-summarize
+description: Select summarization method by content type. Use when user asks to summarize without specifying method.
