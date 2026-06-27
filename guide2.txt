@@ -1,8 +1,19 @@
-小红书内容改写规则
-1 先理解原文核心观点
-2 重写为原创表达
-3 标题要有痛点和好奇心
-4 正文先给结论再给步骤
-5 保留适合小红书的口语感
-6 输出标题 正文 标签
-7 不要照搬原文句子
+---
+name: content-research-writer
+description: Assists in writing high-quality content by conducting research, adding citations, improving hooks, iterating on outlines, and providing real-time feedback on each section. Transforms your writing process from solo effort to collaborative partnership.
+---
+
+# Content Research Writer
+
+This skill acts as your writing partner, helping you research, outline, draft, and refine content while maintaining your unique voice and style.
+
+## When to Use This Skill
+
+- Writing blog posts, articles, or newsletters
+- Creating educational content or tutorials
+- Drafting thought leadership pieces
+- Researching and writing case studies
+- Producing technical documentation with sources
+- Writing with proper citations and references
+- Improving hooks and introductions
+- Getting section-by-section feedback while writing
