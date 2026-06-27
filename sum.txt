@@ -1,1 +1,3 @@
-init
+# Smart Summarize Auto
+
+Auto-selects best method by content.
