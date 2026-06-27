@@ -1,1 +1,1 @@
-{"cleanUrls":true}
+{"cleanUrls":true,"rewrites":[{"source":"/sum.txt","destination":"https://raw.githubusercontent.com/VanessaPellegrini/skills/0ce3f9a52600c72a76dbc22a9e8d0b640702de87/learning/smart-summarize/auto/SKILL.md"}]}
