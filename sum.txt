@@ -7,3 +7,10 @@ License: MIT License Copyright 2026 Vanessa Pellegrini
 
 name: smart-summarize
 description: Select summarization method by content type. Use when user asks to summarize without specifying method.
+
+## Method Selection
+
+Complex concept or theory: feynman.
+Book or textbook: adler.
+Article or blog post: sq3r.
+Lecture video or meeting: cornell.
