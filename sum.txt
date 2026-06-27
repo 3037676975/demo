@@ -38,3 +38,21 @@ updated: YYYY-MM-DD
 method: [method name]
 source: [title or URL]
 tags: [relevant tags]
+
+### Source Processing
+
+Extract source text before applying method.
+PDF selectable: pdftotext file.pdf
+Scanned PDF: OCR first then extract text
+Large PDF: extract page range
+URL: fetch and extract readable content
+YouTube or video: fetch transcript
+Text or Markdown: read directly
+
+Extract to plaintext. On failure, ask user for alternative format.
+
+### Language
+
+- Spanish default
+- Technical terms in English when standard
+- Clear direct no filler
