@@ -15,6 +15,13 @@ function slugify(text) {
     .slice(0, 64) || `skill-${Date.now()}`;
 }
 
+function readableName(frontMatterName, titleName, repoName) {
+  const fm = cleanText(frontMatterName || '');
+  const title = cleanText(titleName || '');
+  if (title && (!fm || fm.length < 8 || fm === fm.toLowerCase())) return title;
+  return fm || title || repoName || 'GitHub Skill';
+}
+
 function parseGitHubInput(input) {
   const u = new URL(input);
   if (u.hostname === 'raw.githubusercontent.com') {
@@ -148,7 +155,8 @@ module.exports = async function handler(req, res) {
     const fmName = frontMatterValue(md, 'name');
     const fmDesc = frontMatterValue(md, 'description');
     const titleMatch = md.match(/^#\s+(.+)$/m);
-    const name = cleanText(fmName || (titleMatch ? titleMatch[1] : info.filePath.split('/').slice(-2, -1)[0] || info.repo));
+    const titleName = titleMatch ? titleMatch[1] : '';
+    const name = readableName(fmName, titleName, info.repo);
     const paragraphs = md.split(/\n\s*\n/).map(cleanText).filter(Boolean).filter(p => !p.toLowerCase().startsWith('name '));
     const descBase = fmDesc || paragraphs.find(p => p.length > 20 && !p.startsWith(name)) || `${name} Skill 调用入口。`;
     const hay = `${name} ${descBase} ${md.slice(0, 1800)}`;
