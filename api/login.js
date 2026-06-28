@@ -1,3 +1,13 @@
+const crypto = require('crypto');
+
+function base64url(value) {
+  return Buffer.from(value).toString('base64url');
+}
+
+function sign(payload, secret) {
+  return crypto.createHmac('sha256', secret).update(payload).digest('base64url');
+}
+
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
@@ -15,7 +25,13 @@ module.exports = async function handler(req, res) {
       return res.status(401).json({ ok: false, message: '密码错误' });
     }
 
-    const token = Buffer.from(JSON.stringify({ role: 'admin', time: Date.now() })).toString('base64');
+    const payload = base64url(JSON.stringify({
+      role: 'admin',
+      iat: Date.now(),
+      exp: Date.now() + 7 * 24 * 60 * 60 * 1000
+    }));
+    const token = `${payload}.${sign(payload, adminPassword)}`;
+
     return res.status(200).json({ ok: true, token, message: '登录成功' });
   } catch (error) {
     return res.status(500).json({ ok: false, message: error && error.message ? error.message : 'Unknown error' });
