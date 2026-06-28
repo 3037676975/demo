@@ -20,7 +20,7 @@
       <nav class="nav" id="nav">
         <button class="active" data-view="dashboard" type="button">总览 Dashboard</button>
         <button data-view="skills" type="button">技能管理</button>
-        <a class="import" href="import-save.html">+ 导入 GitHub Skill</a>
+        <a class="import" href="import-save.html">+ 导入 / 重新检测</a>
         <button data-view="categories" type="button">分类管理</button>
         <button data-view="stats" type="button">数据统计</button>
         <button data-view="settings" type="button">系统设置</button>
@@ -28,24 +28,12 @@
       <div class="user">👤 Admin<br><small>管理员 · Supabase 发布版</small><button class="logout" id="logout" type="button">退出登录</button></div>
     </aside>
     <main class="main" id="main">
-      <section class="top">
-        <div>
-          <h1>管理后台 · 总览</h1>
-          <p>后台正在启动，如果一直停留在这里，请强制刷新页面。</p>
-        </div>
-      </section>
-      <section class="grid4">
-        <div class="metric"><span>状态</span><b>Loading</b></div>
-        <div class="metric"><span>提示</span><b>JS</b></div>
-        <div class="metric"><span>数据</span><b>DB</b></div>
-        <div class="metric"><span>发布</span><b>API</b></div>
-      </section>
+      <section class="top"><div><h1>管理后台 · 总览</h1><p>后台正在启动，如果一直停留在这里，请强制刷新页面。</p></div></section>
+      <section class="grid4"><div class="metric"><span>状态</span><b>Loading</b></div><div class="metric"><span>提示</span><b>JS</b></div><div class="metric"><span>数据</span><b>DB</b></div><div class="metric"><span>发布</span><b>API</b></div></section>
     </main>
   </div>
   <div class="toast" id="toast"></div>
-  <script>
-    document.getElementById('logout').onclick=function(){sessionStorage.removeItem('skillhub-admin-token');location.href='login.html'};
-  </script>
-  <script src="admin.js?v=20260628-7" defer></script>
+  <script>document.getElementById('logout').onclick=function(){sessionStorage.removeItem('skillhub-admin-token');location.href='login.html'};</script>
+  <script src="admin.js?v=20260628-8" defer></script>
 </body>
 </html>
