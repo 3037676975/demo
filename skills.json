@@ -48,6 +48,22 @@
     "sort": 3
   },
   {
+    "id": "einui-liquid-glass",
+    "name": "Ein UI / Liquid Glass React",
+    "category": "前端",
+    "tagZh": "液态玻璃",
+    "tagEn": "Liquid Glass",
+    "featured": true,
+    "enabled": true,
+    "path": "einui-liquid-glass.txt",
+    "github": "https://github.com/unobtuse/einui-claude-skill/blob/1ae8e2f9e418a7a1555a2aaa47177a9de3591b29/skills/einui/SKILL.md",
+    "descriptionZh": "用于设计 React / Next.js 的 Liquid Glass 玻璃拟态组件、卡片、按钮和高级后台界面。",
+    "descriptionEn": "Liquid glass UI components, cards, buttons and premium admin interfaces for React and Next.js.",
+    "fitZh": "玻璃拟态、后台美化、React UI、Next.js 页面",
+    "fitEn": "Glassmorphism, admin UI, React UI, Next.js pages",
+    "sort": 4
+  },
+  {
     "id": "karpathy-guide",
     "name": "Karpathy Guide",
     "category": "前端",
@@ -61,7 +77,7 @@
     "descriptionEn": "Think first, keep it simple, and make surgical code changes.",
     "fitZh": "代码修改、重构、避免乱改",
     "fitEn": "Code changes, refactor, simplicity",
-    "sort": 4
+    "sort": 5
   },
   {
     "id": "smart-summarize",
@@ -77,7 +93,7 @@
     "descriptionEn": "Auto-selects the right summarization method.",
     "fitZh": "文章总结、会议纪要、论文提炼",
     "fitEn": "Articles, meetings, papers",
-    "sort": 5
+    "sort": 6
   },
   {
     "id": "frontend-design",
@@ -93,7 +109,7 @@
     "descriptionEn": "Creates distinctive web and app interfaces.",
     "fitZh": "网页设计、应用界面、视觉方向",
     "fitEn": "Web design, app UI, art direction",
-    "sort": 6
+    "sort": 7
   },
   {
     "id": "webapp-testing",
@@ -109,7 +125,7 @@
     "descriptionEn": "Web testing, screenshots, logs and interactions.",
     "fitZh": "Bug 排查、截图测试、交互验证",
     "fitEn": "Bug checks, screenshots, interaction tests",
-    "sort": 7
+    "sort": 8
   },
   {
     "id": "mcp-builder",
@@ -125,7 +141,7 @@
     "descriptionEn": "Build MCP servers for AI agents.",
     "fitZh": "MCP 服务、API 接入、工具调用",
     "fitEn": "MCP servers, APIs, tools",
-    "sort": 8
+    "sort": 9
   },
   {
     "id": "canvas-design",
@@ -141,7 +157,7 @@
     "descriptionEn": "Posters, art direction and visual design.",
     "fitZh": "海报、封面、视觉素材",
     "fitEn": "Posters, covers, visual assets",
-    "sort": 9
+    "sort": 10
   },
   {
     "id": "brand-guidelines",
@@ -157,7 +173,7 @@
     "descriptionEn": "Brand colors, typography and layout rules.",
     "fitZh": "品牌色、字体、排版规范",
     "fitEn": "Brand color, typography, layout",
-    "sort": 10
+    "sort": 11
   },
   {
     "id": "web-artifacts-builder",
@@ -173,6 +189,6 @@
     "descriptionEn": "Complex React and Tailwind prototypes.",
     "fitZh": "React 原型、Tailwind、组件系统",
     "fitEn": "React prototypes, Tailwind, components",
-    "sort": 11
+    "sort": 12
   }
 ]
