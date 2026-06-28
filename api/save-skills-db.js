@@ -1,3 +1,22 @@
+const crypto = require('crypto');
+
+function sign(payload, secret) {
+  return crypto.createHmac('sha256', secret).update(payload).digest('base64url');
+}
+
+function verifyToken(token, secret) {
+  try {
+    if (!token || typeof token !== 'string' || !token.includes('.')) return false;
+    const [payload, signature] = token.split('.');
+    const expected = sign(payload, secret);
+    if (!crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expected))) return false;
+    const data = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
+    return data.role === 'admin' && Number(data.exp || 0) > Date.now();
+  } catch (error) {
+    return false;
+  }
+}
+
 function normalizeSkill(item, index) {
   const id = item.id || String(item.name || `skill-${index + 1}`).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   return {
@@ -38,8 +57,13 @@ module.exports = async function handler(req, res) {
     }
 
     const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
-    if (body.password !== adminPassword) {
-      return res.status(401).json({ ok: false, message: 'Admin password is incorrect' });
+    const headerToken = req.headers['x-admin-token'] || req.headers['authorization'];
+    const token = String(body.token || headerToken || '').replace(/^Bearer\s+/i, '');
+    const passwordOk = body.password && body.password === adminPassword;
+    const tokenOk = verifyToken(token, adminPassword);
+
+    if (!passwordOk && !tokenOk) {
+      return res.status(401).json({ ok: false, message: 'Admin login expired or password is incorrect' });
     }
 
     if (!Array.isArray(body.skills)) {
