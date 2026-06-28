@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const SYSTEM_CATEGORIES = new Set(['__stats__', '__suggestion__']);
+
 function readJsonFallback() {
   try {
     const file = path.join(process.cwd(), 'skills.json');
@@ -13,22 +15,24 @@ function readJsonFallback() {
 }
 
 function mapRows(data) {
-  return Array.isArray(data) ? data.map(row => ({
-    id: row.id,
-    name: row.name,
-    category: row.category,
-    tagZh: row.tag_zh,
-    tagEn: row.tag_en,
-    featured: row.featured,
-    enabled: row.enabled,
-    path: row.path,
-    github: row.github,
-    descriptionZh: row.description_zh,
-    descriptionEn: row.description_en,
-    fitZh: row.fit_zh,
-    fitEn: row.fit_en,
-    sort: row.sort
-  })) : [];
+  return Array.isArray(data)
+    ? data.filter(row => !SYSTEM_CATEGORIES.has(row.category)).map(row => ({
+      id: row.id,
+      name: row.name,
+      category: row.category,
+      tagZh: row.tag_zh,
+      tagEn: row.tag_en,
+      featured: row.featured,
+      enabled: row.enabled,
+      path: row.path,
+      github: row.github,
+      descriptionZh: row.description_zh,
+      descriptionEn: row.description_en,
+      fitZh: row.fit_zh,
+      fitEn: row.fit_en,
+      sort: row.sort
+    }))
+    : [];
 }
 
 module.exports = async function handler(req, res) {
