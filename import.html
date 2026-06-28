@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SkillHub Import</title>
+  <style>
+    body{margin:0;min-height:100vh;font-family:Arial,sans-serif;background:linear-gradient(135deg,#eff6ff,#eef2ff,#fff);color:#0f172a}main{max-width:900px;margin:0 auto;padding:36px}.card{border:1px solid #fff;border-radius:26px;background:rgba(255,255,255,.72);box-shadow:0 28px 80px rgba(15,23,42,.12);padding:24px;margin-bottom:18px}input,textarea{width:100%;border:1px solid #cbd5e1;border-radius:16px;padding:13px;font-size:15px}button,a{display:inline-block;margin-top:12px;margin-right:8px;border:0;border-radius:16px;padding:12px 16px;background:#111827;color:#fff;font-weight:800;text-decoration:none;cursor:pointer}pre{white-space:pre-wrap;background:#0f172a;color:#e2e8f0;border-radius:18px;padding:16px;overflow:auto}.note{color:#64748b;line-height:1.7}
+  </style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <h1>GitHub Skill 识别工具</h1>
+    <p class="note">粘贴 GitHub 上 SKILL.md / CLAUDE.md 的文件链接，系统会自动识别成 Skill JSON。识别后复制 JSON，回到后台添加即可。</p>
+    <input id="url" placeholder="https://github.com/owner/repo/blob/main/.../SKILL.md">
+    <button id="go">开始识别</button>
+    <a href="admin.html">返回后台</a>
+    <p id="msg" class="note"></p>
+  </section>
+  <section class="card">
+    <h2>识别结果</h2>
+    <pre id="out">等待识别...</pre>
+  </section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+$('go').onclick=async()=>{
+  const url=$('url').value.trim();
+  if(!url){$('msg').textContent='请先粘贴链接';return}
+  $('msg').textContent='正在识别...';
+  try{
+    const r=await fetch('/api/import-github-skill',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url})});
+    const d=await r.json();
+    if(!r.ok||!d.ok)throw new Error(d.message||'识别失败');
+    $('out').textContent=JSON.stringify(d.skill,null,2);
+    $('msg').textContent='识别成功。请复制结果，回到后台添加。';
+  }catch(e){$('msg').textContent='识别失败：'+(e.message||e)}
+}
+</script>
+</body>
+</html>
